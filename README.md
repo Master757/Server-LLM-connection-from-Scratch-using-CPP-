@@ -46,7 +46,7 @@ ollama serve &
 ollama pull mistral
 ```
 
-#note:: If you are using a custom personality, ensure you have built it using ollama create your_model_name -f Modelfile
+#note:: If you are using a custom personality, ensure you have built it using ```ollama create your_model_name -f Modelfile```
 
 ## Step 3: Compile the C++ Backend
 Navigate to the root directory of your C++ project and compile the source code. You must link the curl library using the -lcurl flag.
