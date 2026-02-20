@@ -5,7 +5,7 @@
 * **Bhabani Sankar** — Frontend UI/UX design and Node.js server incorporation.
 
 ## Overview
-This project is a custom-built, full-stack Artificial Intelligence chat application. It utilizes a custom C++ TCP server to interface directly with local Large Language Models (LLMs) and a Node.js Express web server to handle the frontend interface. The application is exposed to the internet using ngrok.
+This project is a custom-built, full-stack Artificial Intelligence chat application. It utilizes a custom C++ TCP server to interface directly with local Large Language Models (LLMs) and a Node.js Express web server to handle the frontend interface. The application is exposed to the internet using ngrok, in a Linux/WSL environment.
 
 ## Architecture
 * **Backend:** C++ TCP Server utilizing `libcurl` to communicate with the Ollama API.
@@ -14,7 +14,7 @@ This project is a custom-built, full-stack Artificial Intelligence chat applicat
 * **Tunneling:** ngrok for secure public access.
 
 ## Prerequisites
-Ensure the following are installed on your Linux/WSL environment:
+Ensure the following are installed on your *Linux/WSL* environment:
 * `g++` compiler
 * `libcurl` development packages
 * Node.js and `npm`
