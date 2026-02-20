@@ -77,3 +77,12 @@ ngrok http 5000
 ```
 
 ** You can get your authentication Key from the website ```https://ngrok.com/```, and then activate ```ngrok config add-authtoken YOUR_AUTH_TOKEN_HERE```
+
+## Testing the Backend Directly (Telnet)
+If you wish to bypass the Node.js frontend and test the raw C++ socket server directly, you can use telnet.
+
+1. Ensure the C++ server is running.
+2. Open a new terminal and connect to the socket:
+```bash
+telnet localhost 8080
+```
