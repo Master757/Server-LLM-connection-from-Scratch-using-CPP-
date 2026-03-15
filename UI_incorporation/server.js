@@ -1,4 +1,5 @@
 //♦
+
 const express = require("express");
 const cors = require("cors");
 const net = require("net");
@@ -34,10 +35,14 @@ app.post("/ask", (req, res) => {
 
 	console.log("Incoming prompt:", prompt);
 
-	// Connect to IPv6 C++ LLM server
-	client.connect(8080, "::1", () => {
-		console.log("Connected to LLM server (IPv6)");
-		client.write(prompt + "\n"); // newline = message boundary for poll server
+	// This checks the environment first, then defaults to localhost
+	const llmHost = process.env.LLM_HOST || "127.0.0.1"; 
+
+	console.log(`Attempting to connect to LLM at: ${llmHost}`);
+
+	client.connect(8080, llmHost, () => {
+		console.log(`Connected to LLM server on ${llmHost}`);
+		client.write(prompt + "\n");
 	});
 
 	client.on("data", (data) => {
@@ -93,7 +98,7 @@ app.post("/ask", (req, res) => {
 		busy = false;
 	});
 
-	// 🛡 Smart timeout fallback (LLM safety)
+	//Smart timeout fallback (LLM safety)
 	timeoutHandle = setTimeout(() => {
 		if (!responded) {
 			console.log("Timeout fallback triggered");
@@ -112,7 +117,6 @@ app.post("/ask", (req, res) => {
 	}, 60000); // adjust based on your model speed (0s is safe)
 });
 
-app.listen(5000, () => {
-	console.log("Backend running on port 5000 (IPv6 + Delimiter Mode)");
-
+app.listen(5000, "0.0.0.0", () => {
+	console.log("Backend running on port 5000");
 });
