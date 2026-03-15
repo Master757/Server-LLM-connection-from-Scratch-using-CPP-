@@ -2,7 +2,7 @@
 **Version 2.1**
 
 ## Authors
-* **Kaushik Chakraborty** — TCP server integration with LLM manager, and incorporation with the front and backend servers.
+* **Kaushik Chakraborty** — TCP server integration with LLM manager, and incorporation with the front and backend servers, Docker incoorporation.
 * **Bhabani Sankar** — Frontend UI/UX design and Node.js server incorporation.
 
 ## Overview
